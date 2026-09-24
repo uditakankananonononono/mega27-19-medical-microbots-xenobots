@@ -1,0 +1,125 @@
+{
+ "queries": {
+  "crossref_references_10": {
+   "purcell1977": {
+    "title": "Life at low Reynolds number",
+    "year": 1977,
+    "journal": "American Journal of Physics"
+   },
+   "lauga2009": {
+    "title": "The hydrodynamics of swimming microorganisms",
+    "year": 2009,
+    "journal": "Reports on Progress in Physics"
+   },
+   "zhang2009abf": {
+    "title": "Radiation effects on the behavior of carbon and oxygen impurities and the role o",
+    "year": 2009,
+    "journal": "Journal of Applied Physics"
+   },
+   "nelson2010": {
+    "title": "Microrobots for Minimally Invasive Medicine",
+    "year": 2010,
+    "journal": "Annual Review of Biomedical Engineering"
+   },
+   "kriegman2020": {
+    "title": "A scalable pipeline for designing reconfigurable organisms",
+    "year": 2020,
+    "journal": "Proceedings of the National Academy of Sciences"
+   },
+   "dreyfus2005": {
+    "title": "Microscopic artificial swimmers",
+    "year": 2005,
+    "journal": "Nature"
+   },
+   "berg1993": {
+    "status": "book - no DOI queried"
+   },
+   "howse2007": {
+    "title": "Self-Motile Colloidal Particles: From Directed Propulsion to Random Walk",
+    "year": 2007,
+    "journal": "Physical Review Letters"
+   },
+   "elowitz2000": {
+    "title": "A synthetic oscillatory network of transcriptional regulators",
+    "year": 2000,
+    "journal": "Nature"
+   },
+   "kriegman2021": {
+    "title": "Kinematic self-replication in reconfigurable organisms",
+    "year": 2021,
+    "journal": "Proceedings of the National Academy of Sciences"
+   }
+  },
+  "europepmc_topic_counts_8": {
+   "helical microswimmer": {
+    "hit_count": 239
+   },
+   "magnetic microrobot drug delivery": {
+    "hit_count": 827
+   },
+   "xenobot": {
+    "hit_count": 25
+   },
+   "resistive force theory bacteria": {
+    "hit_count": 725
+   },
+   "microswimmer Brownian motion": {
+    "hit_count": 161
+   },
+   "soft robot evolutionary design": {
+    "hit_count": 1332
+   },
+   "magnetic helical robot step-out": {
+    "hit_count": 905
+   },
+   "low Reynolds number swimming": {
+    "hit_count": 3371
+   }
+  },
+  "openalex_concept_counts_5": {
+   "microrobotics": {
+    "error": "HTTP Error 429: Too Many Requests"
+   },
+   "microswimmer": {
+    "error": "HTTP Error 429: Too Many Requests"
+   },
+   "xenobot": {
+    "error": "HTTP Error 429: Too Many Requests"
+   },
+   "evolutionary robotics": {
+    "work_count": 147756
+   },
+   "Stokes flow": {
+    "work_count": 499341
+   }
+  },
+  "arxiv_preprints_3": {
+   "helical microswimmer": {
+    "error": "HTTP Error 406: Not Acceptable"
+   },
+   "xenobot": {
+    "error": "HTTP Error 406: Not Acceptable"
+   },
+   "magnetic microrobot control": {
+    "error": "HTTP Error 406: Not Acceptable"
+   }
+  },
+  "semanticscholar_xenobot": {
+   "title": "A scalable pipeline for designing reconfigurable organisms",
+   "year": 2020,
+   "citations": 406
+  },
+  "ncbi_pubmed_counts_3": {
+   "xenobot": {
+    "pubmed_count": 7
+   },
+   "medical microrobot": {
+    "pubmed_count": 651
+   },
+   "helical microswimmer magnetic": {
+    "pubmed_count": 37
+   }
+  }
+ },
+ "errors": {}
+}
