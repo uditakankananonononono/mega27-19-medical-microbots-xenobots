@@ -1,0 +1,23 @@
+{
+ "n_feasible": 155,
+ "optimum": {
+  "R": 1e-05,
+  "pitch": 6.000000000000001e-05,
+  "turns": 1.0,
+  "v": 0.0007161347392629473,
+  "eff": 0.0833835797296796,
+  "stepout": 320.1542214308381
+ },
+ "law_coefficients": {
+  "ln_R": 0.7345271818907204,
+  "ln_pitch": 0.21117152609174283,
+  "ln_turns": -0.002849992332701933,
+  "intercept": 3.1320975799521134
+ },
+ "heldout_r2": 0.56352050642459,
+ "verdict": "SCALING LAW INADEQUATE - honest negative",
+ "drive": {
+  "omega_hz": 40.0,
+  "field_mT": 5.0
+ }
+}

@@ -1,0 +1,11 @@
+{
+ "n_geometries": 400,
+ "r2_exact": 1.0,
+ "r2_global_ratio": 0.9977295873225421,
+ "global_xi_ratio": 1.8474718472674454,
+ "psi_star_rad": 0.6345077754226572,
+ "psi_star_deg": 36.354617599952924,
+ "curve_max": 0.31174990343808356,
+ "verdict": "MASTER CURVE CONFIRMED",
+ "claim": "v/(omega R) collapses onto f(psi); contour length cancels"
+}
