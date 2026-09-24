@@ -1,0 +1,136 @@
+{
+ "queries": {
+  "semanticscholar_references_13": {
+   "10.1119/1.10903": {
+    "title": "Life at Low Reynolds Number",
+    "year": 2008,
+    "citations": 4214
+   },
+   "10.1088/0034-4885/72/9/096601": {
+    "title": "The hydrodynamics of swimming microorganisms",
+    "year": 2008,
+    "citations": 2340
+   },
+   "10.1063/1.3148293": {
+    "title": "Radiation effects on the behavior of carbon and oxygen ",
+    "year": 2009,
+    "citations": 28
+   },
+   "10.1146/annurev-bioeng-010510-103409": {
+    "title": "Microrobots for minimally invasive medicine.",
+    "year": 2010,
+    "citations": 1910
+   },
+   "10.1073/pnas.1910837117": {
+    "title": "A scalable pipeline for designing reconfigurable organi",
+    "year": 2020,
+    "citations": 406
+   },
+   "10.1038/nature04090": {
+    "title": "Microscopic artificial swimmers",
+    "year": 2005,
+    "citations": 1693
+   },
+   "10.1103/PhysRevLett.99.048102": {
+    "title": "Self-motile colloidal particles: from directed propulsi",
+    "year": 2007,
+    "citations": 1694
+   },
+   "10.1038/35002125": {
+    "title": "A synthetic oscillatory network of transcriptional regu",
+    "year": 2000,
+    "citations": 4773
+   },
+   "10.1073/pnas.2112672118": {
+    "title": "Kinematic self-replication in reconfigurable organisms",
+    "year": 2021,
+    "citations": 119
+   },
+   "10.1126/science.abb3405": {
+    "title": "Crystal structure of SARS-CoV-2 main protease provides ",
+    "year": 2020,
+    "citations": 2807
+   },
+   "10.1002/jcc.21334": {
+    "title": "AutoDock Vina: improving the speed and accuracy of dock",
+    "year": 2009,
+    "citations": 34753
+   },
+   "10.1021/acs.jcim.1c00203": {
+    "title": "AutoDock Vina 1.2.0: new docking methods, expanded forc",
+    "year": 2021,
+    "citations": 6669
+   },
+   "10.1038/nprot.2016.051": {
+    "title": "Computational protein-ligand docking and virtual drug s",
+    "year": 2016,
+    "citations": 2459
+   }
+  },
+  "europepmc_topics_10": {
+   "magnetophoresis microswimmer": {
+    "hit_count": 6
+   },
+   "ciliary propulsion low Reynolds": {
+    "hit_count": 193
+   },
+   "artificial bacterial flagella fabrication": {
+    "hit_count": 398
+   },
+   "two-photon polymerization microrobot": {
+    "hit_count": 182
+   },
+   "E.coli swimming hydrodynamics": {
+    "hit_count": 37
+   },
+   "sperm cell propulsion model": {
+    "hit_count": 835
+   },
+   "targeted drug delivery magnetism": {
+    "hit_count": 2686
+   },
+   "microfluidic drug screening": {
+    "hit_count": 24196
+   },
+   "living robot self-organization": {
+    "hit_count": 3535
+   },
+   "morphogenetic engineering swarm": {
+    "hit_count": 358
+   }
+  },
+  "pubmed_terms_10": {
+   "magnetic helical microrobot": {
+    "pubmed_count": 67
+   },
+   "soft microrobot locomotion": {
+    "pubmed_count": 92
+   },
+   "xenobot replication": {
+    "pubmed_count": 0
+   },
+   "microswimmer collective behavior": {
+    "pubmed_count": 56
+   },
+   "resistive force theory flagellum": {
+    "pubmed_count": 39
+   },
+   "Brownian motor": {
+    "pubmed_count": 575
+   },
+   "magnetic drug targeting in vivo": {
+    "pubmed_count": 3679
+   },
+   "biohybrid robot cardiac cells": {
+    "pubmed_count": 15
+   },
+   "microbot navigation control": {
+    "pubmed_count": 10
+   },
+   "helical nanomotor": {
+    "pubmed_count": 30
+   }
+  }
+ },
+ "errors": {}
+}

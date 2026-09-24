@@ -1,0 +1,124 @@
+{
+ "queries": {
+  "zenodo_datasets_5x5": {
+   "bacterial flagellum hydrodynamics": {
+    "dataset_ids": [
+     20614833,
+     20088460,
+     6902605,
+     4967813,
+     7542638
+    ],
+    "total": 4646
+   },
+   "magnetic actuation robot": {
+    "dataset_ids": [
+     7076294,
+     14827844,
+     22133822,
+     10419411,
+     21977806
+    ],
+    "total": 6994
+   },
+   "Brownian dynamics simulation": {
+    "dataset_ids": [
+     20142754,
+     18764455,
+     17279856,
+     10632916,
+     11109995
+    ],
+    "total": 43122
+   },
+   "soft body locomotion": {
+    "dataset_ids": [
+     12723474,
+     13768820,
+     12673097,
+     5071858,
+     4771083
+    ],
+    "total": 16041
+   },
+   "microswimmer control": {
+    "dataset_ids": [
+     21103719,
+     4549495,
+     5779081,
+     5905360,
+     7725479
+    ],
+    "total": 24005
+   }
+  },
+  "datacite_datasets_3x5_b": {
+   "xenobot": {
+    "dataset_dois": [],
+    "total": 0
+   },
+   "magnetic microswimmer trajectory": {
+    "dataset_dois": [],
+    "total": 0
+   },
+   "soft robot gait": {
+    "dataset_dois": [
+     "10.15480/336.2519",
+     "10.5281/zenodo.17874413",
+     "10.5281/zenodo.17874412",
+     "10.5281/zenodo.17836595",
+     "10.5281/zenodo.17836596"
+    ],
+    "total": 13
+   }
+  },
+  "crossref_bibliography_10": {
+   "berg1993": {
+    "status": "no DOI"
+   },
+   "lauga2006": {
+    "error": "HTTP Error 404: Not Found"
+   },
+   "purcell2014": {
+    "title": "Consequences of self-preservation on the axis of a turbulent",
+    "year": 2014
+   },
+   "abbott2009": {
+    "error": "HTTP Error 404: Not Found"
+   },
+   "kim2016xenobot": {
+    "status": "no DOI"
+   },
+   "paxton2004": {
+    "title": "Catalytic Nanomotors:\u2009 Autonomous Movement of Striped Nanoro",
+    "year": 2004
+   },
+   "wang2006": {
+    "error": "HTTP Error 404: Not Found"
+   },
+   "ghosh2009": {
+    "title": "Controlled Propulsion of Artificial Magnetic Nanostructured ",
+    "year": 2009
+   },
+   "palagi2016": {
+    "title": "Flexible non-volatile optical memory thin-film transistor de",
+    "year": 2016
+   },
+   "sitti2015": {
+    "error": "HTTP Error 404: Not Found"
+   }
+  },
+  "aflow_magnetic_materials_3": {
+   "Nd2Fe14B": {
+    "error": "timed out"
+   },
+   "Fe3O4": {
+    "error": "The read operation timed out"
+   },
+   "NiFe_permalloy": {
+    "error": "timed out"
+   }
+  }
+ },
+ "errors": {}
+}
