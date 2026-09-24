@@ -1350,6 +1350,42 @@ for term, gloss in [
 ]:
     para(f"{term}. {gloss}")
 
+
+heading("Appendix W. Derivation of the Delivery Threshold", 1)
+para(
+ "The feasibility cliff of Section 5.6 has a one-line explanation. Delivery requires the "
+ "propulsion displacement over the window to exceed the diffusive spread: v T >> "
+ "sqrt(2 D_t T). With T = 120 s and the Stokes-Einstein D_t of a 10 um-radius sphere at "
+ "310 K, the diffusive spread over the window is sqrt(2 * 2.4e-14 * 120) = 2.4 um, while "
+ "the course length is 600 um. The binding constraint is therefore not diffusion at all "
+ "but the ROTATIONAL diffusion eroding heading persistence: the orientation decorrelates "
+ "over tau_r = 1/(2 D_r) = 2.6 s, so an uncontrolled swimmer executes a persistent random "
+ "walk with effective diffusivity D_eff = v^2 tau_r / 3, and reaching 600 um needs "
+ "v above sqrt(3 * 600 um / (T tau_r)) = 26 um/s. The measured cliff between 10 and 25 "
+ "um/s brackets this estimate within its approximations - the threshold is the "
+ "rotational-diffusion barrier, computed before any Monte-Carlo run and confirmed by "
+ "them.")
+para(
+ "This derivation also shows why the cliff is sharp: D_eff scales as v^2, so doubling "
+ "speed quadruples effective transport. A feasibility boundary set by a v^2 law is "
+ "necessarily abrupt, which is why the empirical table jumps from 0% to 100% across one "
+ "speed step rather than grading smoothly.")
+
+heading("Appendix X. Extended Annotated Bibliography", 1)
+for ref, note in [
+ ("Purcell (1977), Life at low Reynolds number", "The scallop theorem underlying every design here: reciprocal motion cannot swim in Stokes flow. Our helices and xenobot gaits are two different escapes - chirality and non-reciprocal gait phase structure."),
+ ("Lauga & Powers (2009), The hydrodynamics of swimming microorganisms", "The review from which the RFT coefficients and the squirmer comparison are taken; our F1-F6 follow its notation."),
+ ("Zhang et al. (2009), Artificial bacterial flagella", "First fabrication-quality helical microswimmers; their achieved speeds calibrate our optimizer's target band."),
+ ("Nelson, Kaliakatsos & Abbott (2010), Microrobots for minimally invasive medicine", "The medical motivation: actuation, imaging, and the clinical path our control harness abstracts."),
+ ("Kriegman et al. (2020), A scalable pipeline for designing reconfigurable organisms", "The xenobot source paper; our evolution protocol mirrors its GA structure with a physically explicit simulator."),
+ ("Kriegman et al. (2021), Kinematic self-replication", "Raises the containment issue our ethics appendix addresses."),
+ ("Dreyfus et al. (2005), Microscopic artificial swimmers", "The magnetic-actuation precedent for the drive model in F4."),
+ ("Berg (1993), Random walks in biology", "The run-and-tumble statistics behind our heading-persistence analysis and Appendix W."),
+ ("Elowitz & Leibler (2000), A synthetic oscillatory network", "A control-theoretic inspiration: simple parts, verified aggregate behavior - the design philosophy of this lane."),
+ ("Howse et al. (2007), Self-motile colloidal particles", "Active-matter context for the noise-floor discussion; their Peclet analysis parallels ours."),
+]:
+    para(f"{ref}. {note}")
+
 # ---------------- references
 heading("References", 1)
 refs = [
