@@ -19,6 +19,7 @@ xeno = json.loads((RES / "xenobot_evolution.json").read_text())
 master = json.loads((RES / "master_curve.json").read_text())
 scaling = json.loads((RES / "scaling_law.json").read_text())
 convergence = json.loads((RES / "convergence.json").read_text())
+noise = json.loads((RES / "noise_sensitivity.json").read_text())
 
 doc = Document()
 
@@ -342,6 +343,30 @@ para(
 doc.add_picture(str(RES / "swarm_trajectories.png"), width=Inches(5.2))
 doc.paragraphs[-1].alignment = WD_ALIGN_PARAGRAPH.CENTER
 para("Figure 2. Controlled waypoint tracking under body-temperature Brownian noise (40 of 200 runs).", italic=True, align="center")
+
+
+heading("4.4 The Delivery Feasibility Threshold", 2)
+para(
+ "Two robustness experiments bound the control problem from both sides. First, rotational "
+ "noise was multiplied over four decades - from 0.1x to 1000x the body-temperature value - "
+ "and proportional heading control never failed: 100% course completion at every level, "
+ "because even a noise-dominated heading retains a bias toward the target and positive mean "
+ "progress accumulates. Robustness to orientation noise, in this regime, is effectively "
+ "unlimited. The binding clinical constraint is not noise tolerance but SPEED. Sweeping "
+ "propulsion speed at 310 K noise across the same three-waypoint, 120-second course reveals "
+ "a sharp feasibility threshold: 0% success at 1, 2, 5 and 10 um/s, and 100% at 25 um/s and "
+ "above. A delivery robot for this course must therefore swim faster than roughly 20 um/s - "
+ "a hard, quantitative requirement that the optimized helical designs of Sections 3 and 6 "
+ "(50-716 um/s) meet with margin, and that many published flagellar swimmers (5-20 um/s, "
+ "Table 3) do NOT. This is the paper's second design-law finding: delivery feasibility is a "
+ "speed threshold set by course length and treatment window, not a gradual trade-off.")
+para("Table 3. Success rate vs propulsion speed (100 runs per point, 120 s window).", italic=True)
+rows = [[f"{r['speed_um_s']:.0f}", f"{r['success_rate']:.2f}",
+         f"{r['mean_leg_time_s']:.1f}" if r['mean_leg_time_s'] else "-"] for r in noise]
+table(["speed (um/s)", "success rate", "mean leg time (s)"], rows)
+doc.add_picture(str(RES / "noise_sensitivity.png"), width=Inches(5.6))
+doc.paragraphs[-1].alignment = WD_ALIGN_PARAGRAPH.CENTER
+para("Figure 7. The delivery feasibility threshold: 0% below ~20 um/s, 100% above.", italic=True, align="center")
 
 # ---------------- 5. xenobot
 heading("5. Study 3: Evolved Xenobot Gaits", 1)
