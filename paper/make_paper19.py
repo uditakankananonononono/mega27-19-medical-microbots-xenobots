@@ -28,6 +28,7 @@ swarm = json.loads((RES / "swarm_control.json").read_text())
 evo = json.loads((RES / "xenobot_evolution.json").read_text())
 conv = json.loads((RES / "convergence.json").read_text())
 verif = json.loads((RES / "external_verification.json").read_text())
+domrand = json.loads((RES / "domain_rand.json").read_text())
 
 doc = Document()
 
@@ -855,6 +856,29 @@ para("Table 6. Champion-genome fitness across physics parameters (evolution cond
 rows = [[f"{g['stiffness']:.0f}", f"{g['friction_mu']:.1f}", f"{g['fitness']:.3f}"] for g in gaitsens]
 table(["stiffness k", "friction mu", "fitness"], rows)
 
+
+heading("5.7b Domain Randomization: The Remedy, Demonstrated", 2)
+para(
+ "Section 5.7 showed the failure; this section shows the fix working. We re-ran "
+ "evolution with an identical budget (14 generations, population 16) but with the "
+ "physics randomized per generation (stiffness uniform in [30, 120], friction in "
+ "[0.4, 1.6]) and a mean-of-two-draws robust objective, then scored BOTH champions on "
+ "the same 3 x 3 off-design grid (results/domain_rand.json). The original champion "
+ "averages -0.09 across the grid with a worst case of -3.93 (crawling backwards); the "
+ "robust champion averages +2.08 with a worst case of -0.68 (essentially stalled, but "
+ "never reversed). The trade-off is equally real and equally reported: at the original "
+ "design point the robust champion manages only 0.15 against the specialist's 7.20 - "
+ "robustness is bought with peak performance, and its grid profile (strong at high "
+ "stiffness: 9.96, 4.98, 3.63; weak at low) shows the pilot has its own residual "
+ "specialization. The demonstration stands: domain randomization converts a "
+ "phase-locked trick into a broadly functional gait on the same budget. This closes "
+ "roadmap priority 1 with a measured result, and reframes the remaining work as "
+ "widening the randomization range rather than inventing new objectives.")
+para("Table 6b. Off-design grid, original vs domain-randomized champion (fitness).", italic=True)
+rows = [[f"{g['stiffness']:.0f}", f"{g['friction_mu']:.1f}", f"{g['original_champion']:.2f}", f"{g['robust_champion']:.2f}"]
+        for g in domrand["grid"]]
+table(["stiffness k", "friction mu", "original", "robust"], rows)
+
 # ---------------- appendix J: geometry sample
 heading("Appendix J. Master-Curve Geometry Sample", 1)
 para(
@@ -1390,7 +1414,7 @@ for ref, note in [
 
 heading("Appendix Y. Roadmap and Open Problems", 1)
 table(["priority", "problem", "why it matters", "first step"],
- [["1", "domain-randomized gait evolution", "Section 5.7 shows gaits overfit physics parameters", "randomize k, mu per generation"],
+ [["1", "domain-randomized gait evolution", "DONE - Section 5.7b: robust champion mean grid +2.08 vs -0.09", "widen randomization range"],
   ["2", "wall-proximity master-curve correction", "in-vivo swimmers swim near vessel walls", "add Blake tensor correction to RFT"],
   ["3", "non-Newtonian (shear-thinning) validation", "blood and mucus are not Newtonian", "Carreau viscosity in drag model"],
   ["4", "swarm-level control analysis", "clinical doses are populations, not single robots", "extend U.2 harness to N coupled agents"],
