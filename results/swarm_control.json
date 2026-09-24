@@ -1,0 +1,12 @@
+{
+ "robot_radius_um": 5.0,
+ "speed_um_s": 50.0,
+ "D_t_m2_s": 4.541233669180899e-14,
+ "D_r_rad2_s": 0.0013623701007542692,
+ "temperature_K": 310.0,
+ "controlled_success_rate": 1.0,
+ "controlled_success_ci95": 0.0,
+ "mean_leg_time_s": 38.27160000000116,
+ "uncontrolled_reach_rate": 0.0,
+ "n_runs": 200
+}

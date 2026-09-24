@@ -1,0 +1,97 @@
+{
+ "n_feasible": 628,
+ "best": {
+  "radius_um": 10.0,
+  "pitch_um": 30.0,
+  "turns": 1.5,
+  "speed_um_s": 480.2391258530719,
+  "efficiency": 0.05283663807958867,
+  "stepout_hz": 52.995962300469586
+ },
+ "top10": [
+  {
+   "radius_um": 10.0,
+   "pitch_um": 30.0,
+   "turns": 1.5,
+   "speed_um_s": 480.2391258530719,
+   "efficiency": 0.05283663807958867,
+   "stepout_hz": 52.995962300469586
+  },
+  {
+   "radius_um": 9.0,
+   "pitch_um": 30.0,
+   "turns": 2.0,
+   "speed_um_s": 470.24177915780683,
+   "efficiency": 0.060158626146788415,
+   "stepout_hz": 54.156493221232
+  },
+  {
+   "radius_um": 9.0,
+   "pitch_um": 30.0,
+   "turns": 1.5,
+   "speed_um_s": 467.0427199096916,
+   "efficiency": 0.05918508190461723,
+   "stepout_hz": 68.36009905731495
+  },
+  {
+   "radius_um": 8.000000000000002,
+   "pitch_um": 30.0,
+   "turns": 3.0,
+   "speed_um_s": 457.2264108693011,
+   "efficiency": 0.06852169694694107,
+   "stepout_hz": 51.33659785165716
+  },
+  {
+   "radius_um": 8.000000000000002,
+   "pitch_um": 30.0,
+   "turns": 2.5,
+   "speed_um_s": 455.48390868829364,
+   "efficiency": 0.06791628871907063,
+   "stepout_hz": 59.647739448790574
+  },
+  {
+   "radius_um": 8.000000000000002,
+   "pitch_um": 30.0,
+   "turns": 2.0,
+   "speed_um_s": 453.1857529762226,
+   "efficiency": 0.06712314824245348,
+   "stepout_hz": 71.56655560707618
+  },
+  {
+   "radius_um": 8.000000000000002,
+   "pitch_um": 30.0,
+   "turns": 1.5,
+   "speed_um_s": 449.91635438627304,
+   "efficiency": 0.06600519001721541,
+   "stepout_hz": 90.27600285192791
+  },
+  {
+   "radius_um": 10.0,
+   "pitch_um": 27.5,
+   "turns": 1.5,
+   "speed_um_s": 448.0307799360999,
+   "efficiency": 0.04737982537792504,
+   "stepout_hz": 54.60897644865939
+  },
+  {
+   "radius_um": 9.0,
+   "pitch_um": 27.5,
+   "turns": 2.0,
+   "speed_um_s": 440.2772895241121,
+   "efficiency": 0.05456005983358644,
+   "stepout_hz": 56.06088172629165
+  },
+  {
+   "radius_um": 9.0,
+   "pitch_um": 27.5,
+   "turns": 1.5,
+   "speed_um_s": 437.30208147773476,
+   "efficiency": 0.053665568458686114,
+   "stepout_hz": 70.7370725859428
+  }
+ ],
+ "drive": {
+  "omega_hz": 40.0,
+  "field_mT": 1.0
+ }
+}
