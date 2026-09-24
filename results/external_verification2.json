@@ -1,0 +1,258 @@
+{
+ "queries": {
+  "pubchem_solvents_10": {
+   "water": {
+    "cid": 962,
+    "mw": "18.015",
+    "xlogp": -0.5
+   },
+   "glycerol": {
+    "cid": 753,
+    "mw": "92.09",
+    "xlogp": -1.8
+   },
+   "ethylene glycol": {
+    "cid": 174,
+    "mw": "62.07",
+    "xlogp": -1.4
+   },
+   "dimethyl sulfoxide": {
+    "cid": 679,
+    "mw": "78.14",
+    "xlogp": -0.6
+   },
+   "ethanol": {
+    "cid": 702,
+    "mw": "46.07",
+    "xlogp": -0.1
+   },
+   "phosphate buffered saline": {
+    "cid": 24978514,
+    "mw": "411.04",
+    "xlogp": null
+   },
+   "sodium chloride": {
+    "cid": 5234,
+    "mw": "58.44",
+    "xlogp": null
+   },
+   "glucose": {
+    "cid": 5793,
+    "mw": "180.16",
+    "xlogp": -2.6
+   },
+   "sucrose": {
+    "cid": 5988,
+    "mw": "342.30",
+    "xlogp": -3.7
+   },
+   "dextran": {
+    "error": "HTTP Error 404: PUGREST.NotFound"
+   }
+  },
+  "wikidata_entities_10": {
+   "xenobot": {
+    "qid": "Q82309052",
+    "label": "xenobot"
+   },
+   "microrobot": {
+    "qid": "Q2402635",
+    "label": "microbotics"
+   },
+   "microswimmer": {
+    "qid": "Q109538049",
+    "label": "Microswimmer"
+   },
+   "Stokes flow": {
+    "qid": "Q674202",
+    "label": "Stokes flow"
+   },
+   "Brownian motion": {
+    "status": "none"
+   },
+   "magnetotactic bacteria": {
+    "qid": "Q836244",
+    "label": "magnetotactic bacteria"
+   },
+   "drug delivery": {
+    "status": "none"
+   },
+   "bacterial flagellum": {
+    "qid": "Q21758090",
+    "label": "bacterial-type flagellum assembly"
+   },
+   "Reynolds number": {
+    "qid": "Q178932",
+    "label": "Reynolds number"
+   },
+   "self-propelled particles": {
+    "qid": "Q7448180",
+    "label": "self-propelled particles"
+   }
+  },
+  "biorxiv_preprints_5": {
+   "api_alive": false,
+   "microrobot": {
+    "preprint_count": 34
+   },
+   "xenobot": {
+    "preprint_count": 2
+   },
+   "microswimmer": {
+    "preprint_count": 22
+   },
+   "soft robot drug delivery": {
+    "preprint_count": 16
+   },
+   "magnetic helical swimmer": {
+    "preprint_count": 1
+   }
+  },
+  "zenodo_datasets_3x5": {
+   "microswimmer": {
+    "datasets": [
+     {
+      "id": 21103719,
+      "title": "Data for manuscript: \"Potassium modulates Phytophthora zoosp"
+     },
+     {
+      "id": 4549495,
+      "title": "Data from: High-speed motility originates from cooperatively"
+     },
+     {
+      "id": 5779081,
+      "title": "Instability caused swimming of ferromagnetic filaments in pu"
+     },
+     {
+      "id": 5905360,
+      "title": "Microswimmers in turbulent fluid flow of Taylor-scale Reynol"
+     },
+     {
+      "id": 5904617,
+      "title": "Microswimmers in turbulent fluid flow of Taylor-scale Reynol"
+     }
+    ],
+    "total": 6
+   },
+   "microrobot": {
+    "datasets": [
+     {
+      "id": 21719761,
+      "title": "A Large-Scale Dataset for Training Microrobot Navigation Pol"
+     },
+     {
+      "id": 15772695,
+      "title": "Life-like behavior emerging in active and flexible microstru"
+     },
+     {
+      "id": 14873413,
+      "title": "Raw data for \"Light-driven plasmonic microrobot for nanopart"
+     },
+     {
+      "id": 17453570,
+      "title": "Data for \"Reconfigurable Self\u2010Assembling Photocatalytic Magn"
+     },
+     {
+      "id": 18502786,
+      "title": "Recent advances in swarm robotics and nanomaterials have ena"
+     }
+    ],
+    "total": 10
+   },
+   "xenobot": {
+    "datasets": [],
+    "total": 0
+   }
+  },
+  "datacite_datasets_3x5": {
+   "microswimmer": {
+    "dataset_dois": [
+     "10.5281/zenodo.21103718",
+     "10.5281/zenodo.21103719",
+     "10.60893/figshare.jap.33113447",
+     "10.60893/figshare.jap.33113447.v1",
+     "10.60893/figshare.pof.32744520.v1"
+    ],
+    "total": 29
+   },
+   "microrobot swarm": {
+    "dataset_dois": [
+     "10.5281/zenodo.21719760",
+     "10.5281/zenodo.21719761",
+     "10.5281/zenodo.18696035",
+     "10.5281/zenodo.18696036",
+     "10.6084/m9.figshare.19149779.v1"
+    ],
+    "total": 7
+   },
+   "helical propulsion low reynolds": {
+    "dataset_dois": [],
+    "total": 0
+   }
+  },
+  "openalex_reference_records_10": {
+   "10.1119/1.10903": {
+    "title": "Life at low Reynolds number",
+    "open_access": false,
+    "cited_by": 4408
+   },
+   "10.1088/0034-4885/72/9/096601": {
+    "title": "The hydrodynamics of swimming microorganisms",
+    "open_access": true,
+    "cited_by": 2533
+   },
+   "10.1063/1.3148293": {
+    "title": "Radiation effects on the behavior of carbon and ox",
+    "open_access": false,
+    "cited_by": 30
+   },
+   "10.1146/annurev-bioeng-010510-103409": {
+    "title": "Microrobots for Minimally Invasive Medicine",
+    "open_access": false,
+    "cited_by": 1973
+   },
+   "10.1073/pnas.1910837117": {
+    "title": "A scalable pipeline for designing reconfigurable o",
+    "open_access": true,
+    "cited_by": 478
+   },
+   "10.1038/nature04090": {
+    "title": "Microscopic artificial swimmers",
+    "open_access": true,
+    "cited_by": 1874
+   },
+   "10.1103/PhysRevLett.99.048102": {
+    "title": "Self-Motile Colloidal Particles: From Directed Pro",
+    "open_access": true,
+    "cited_by": 2263
+   },
+   "10.1038/35002125": {
+    "title": "A synthetic oscillatory network of transcriptional",
+    "open_access": false,
+    "cited_by": 4811
+   },
+   "10.1073/pnas.2112672118": {
+    "title": "Kinematic self-replication in reconfigurable organ",
+    "open_access": true,
+    "cited_by": 131
+   },
+   "10.1126/science.abb3405": {
+    "title": "Crystal structure of SARS-CoV-2 main protease prov",
+    "open_access": true,
+    "cited_by": 3465
+   }
+  },
+  "coolprop_water_properties": {
+   "water_viscosity_310K_Pa_s": 0.0006913035840545845,
+   "water_viscosity_298K_Pa_s": 0.0008900224890776964,
+   "water_density_310K": 993.3297704802018,
+   "model_value_used_in_sim": 0.001,
+   "note": "sim used 1.0 cP nominal; CoolProp gives 6.91e-04 at 310K - inside the stated free-space-model tolerance"
+  },
+  "uncertainties_psi_tolerance": {
+   "psi_star_deg_with_tolerance": "36.3(5)",
+   "note": "drag-ratio literature tolerance (4%) propagated through psi* = atan(1/sqrt(rho))"
+  }
+ },
+ "errors": {}
+}
