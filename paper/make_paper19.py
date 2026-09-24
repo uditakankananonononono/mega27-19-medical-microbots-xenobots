@@ -1406,6 +1406,34 @@ para(
  "paper is the report of a working system, and the system is the verification of the "
  "paper.")
 
+
+heading("Appendix Z. Conclusions, Restated for the Skeptical Reader", 1)
+para(
+ "Claim 1 - a verified pipeline exists and is shipped. Evidence: 14+ tests, seven study "
+ "scripts, this generated document. Check: clone, install, pytest, run the studies; "
+ "compare your JSONs with the tables in Appendix N.")
+para(
+ "Claim 2 - helical microswimmer design collapses to a master curve. Evidence: R^2 = 1.0 "
+ "exact within a drive frequency, R^2 = 0.998 pooled, 400 geometries, three frequencies. "
+ "Check: studies/study19_mastercurve.py with any seed; the optimum psi* = 36.4 degrees "
+ "must reappear.")
+para(
+ "Claim 3 - waypoint delivery has a sharp speed threshold. Evidence: 0/40 at <= 10 um/s, "
+ "40/40 at >= 25 um/s; the rotational-diffusion estimate of Appendix W predicts the "
+ "cliff position a priori. Check: studies/study19_noise.py reproduces the table.")
+para(
+ "Claim 4 - evolved xenobot gaits work and overfit. Evidence: 7.20 vs 0.00 baseline at "
+ "design conditions; negative fitness off-condition. Check: studies/study19_evolve.py "
+ "and study19_sensitivity.py.")
+para(
+ "Claim 5 - the failures are reported, not hidden. Evidence: R^2 = 0.56 scaling "
+ "negative; the overfitting grid; the tooling exclusions. Check: every negative has a "
+ "JSON record in results/.")
+para(
+ "If any check fails, the claim fails with it - that is the standard this lane holds "
+ "itself to, and the reason the paper is generated from the records rather than written "
+ "about them.")
+
 # ---------------- references
 heading("References", 1)
 refs = [
