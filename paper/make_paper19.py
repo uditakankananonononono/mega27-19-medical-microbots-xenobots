@@ -194,6 +194,34 @@ for fig, guide in [
 ]:
     para(f"{fig}: {guide}")
 
+heading("Appendix W4. Hydrodynamic Wall Corrections", 1)
+para(
+ "Every hydrodynamic result in the main text assumes an unbounded fluid. A microbot in "
+ "a microvessel, however, can swim within a body radius of the endothelium, and wall "
+ "hydrodynamics are first-order there. This appendix quantifies that correction with the "
+ "exact Faxen series for a sphere near a plane wall, applied to a 2 um body-radius "
+ "robot (the middle of the 1-10 um design band). The derivation and the full table are "
+ "in studies/study19_wall.py and results/wall_correction.json; the formulas are "
+ "reproduced here because they tighten the delivery threshold of Section 4.4.")
+equation("lambda_parallel(x) = 1 - (9/16)x + (1/8)x^3 - (45/256)x^4 - (1/16)x^5     [W4.1]")
+equation("lambda_perp(x) = 1 - (9/8)x + (1/2)x^3     [W4.2]")
+para(
+ "Here x = a/h is the body radius over the center-to-wall distance; the drag grows by "
+ "1/lambda, so at fixed thrust the swim speed falls by lambda. Parametrizing by "
+ "clearance c = h - a (the physically controlled quantity - a robot cannot sit closer "
+ "than contact), a robot swimming close to the wall (c = a, x = 0.5) retains "
+ "lambda_parallel = 0.721 of its bulk speed, while grazing contact (c = 0.1a) retains "
+ "only 0.424. Equation W4.1 therefore tightens the bulk delivery threshold of Section "
+ "4.4: the 25 um/s bulk requirement becomes a 34.7 um/s bulk-equivalent requirement "
+ "for close-to-wall operation, and near-wall crawling is strongly penalized. Two "
+ "validity limits are stated in the result JSON and repeated here: the series is a "
+ "single-wall approximation (in a capillary with a/R > 0.3, two-wall confinement "
+ "dominates and the numbers are lower-fidelity estimates, flagged in the table), and "
+ "the truncated series underestimates drag in the lubrication regime (x > 0.8).")
+doc.add_picture(str(RES / "wall_correction.png"), width=Inches(6.0))
+para("Figure W4.1: Faxen correction factors and speed retention by vessel class; "
+     "orange bars mark the confined, lower-fidelity capillary regime.", italic=True)
+
 # ---------------- abstract
 heading("Abstract", 1)
 para(
@@ -1583,3 +1611,7 @@ para(
  "frames. All regenerate from the shipped studies with fixed seeds; the consolidated "
  "manifest is results/dataset_manifest.csv (pandas).")
 
+
+out = ROOT / "paper" / "MEGA27-19_medical_microbots_xenobots_paper.docx"
+doc.save(str(out))
+print("saved", out)
