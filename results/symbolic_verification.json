@@ -1,0 +1,13 @@
+{
+ "symbolic_condition": "tan^2(psi*) = 1/rho",
+ "psi_star_formula": "psi* = atan(1/sqrt(rho))",
+ "rho_used": 1.8474718472674454,
+ "psi_star_rad_symbolic": 0.6342974693482231,
+ "psi_star_deg_symbolic": 36.34256794948188,
+ "psi_star_deg_numeric_study": 36.354617599952924,
+ "agreement_deg": 0.012049650471041673,
+ "f_max_symbolic": 0.31174993369078097,
+ "second_derivative_at_optimum": -1.3681931713670659,
+ "is_maximum": true,
+ "turn_cancellation": "f(psi; rho) contains no turn-count symbol - cancellation is structural, exact"
+}
