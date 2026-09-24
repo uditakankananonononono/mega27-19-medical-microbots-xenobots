@@ -3,6 +3,8 @@ accents, real equations, real results from results/*.json, embedded figures."""
 import json
 import pathlib
 
+import numpy as np
+from microbots.rft import HelixGeometry, swimming_speed
 from docx import Document
 from docx.shared import Pt, Inches, RGBColor
 from docx.enum.text import WD_ALIGN_PARAGRAPH
@@ -20,6 +22,7 @@ master = json.loads((RES / "master_curve.json").read_text())
 scaling = json.loads((RES / "scaling_law.json").read_text())
 convergence = json.loads((RES / "convergence.json").read_text())
 noise = json.loads((RES / "noise_sensitivity.json").read_text())
+gaitsens = json.loads((RES / "gait_sensitivity.json").read_text())
 
 doc = Document()
 
@@ -281,6 +284,49 @@ para(
  "the computed thrust of order piconewtons matches the scale measured for artificial "
  "bacterial flagella by optical tweezers in the cited experimental literature.")
 
+
+heading("1.3 A Short History of Swimming Small", 2)
+para(
+ "The physics of microscale locomotion was assembled over two centuries and inverted once. "
+ "Stokes derived his drag law in 1851 for pendulum viscosity measurements; Einstein's 1905 "
+ "dissertation linked diffusion to drag through what we now call fluctuation-dissipation; "
+ "Taylor in 1951 showed that a waving sheet DOES swim at low Reynolds number, dissolving "
+ "the naive reading of the scallop theorem before Purcell stated it crisply in 1977; and "
+ "Berg's tracking of E. coli in the 1970s revealed the run-and-tumble strategy that every "
+ "biohybrid robot since has borrowed. The synthetic era began in 2005 when Dreyfus "
+ "actuated a magnetic bead chain with an oscillating field, proving that an external field "
+ "can supply the non-reciprocal stroke a rigid body cannot. Helical propulsion followed "
+ "from the bacterial solution: Zhang's artificial bacterial flagella (2009-2010) and "
+ "Ghosh's nanopropellers established the rotating-field helical design that this paper "
+ "optimizes analytically. The control layer matured last: magnetic navigation systems "
+ "originally built for catheter steering were repurposed for microrobot guidance in the "
+ "2010s, and the swarm-delivery framing - many cheap robots, one statistical objective - "
+ "arrived with the Sitti school's roadmap papers. This study stands on all four layers: "
+ "Stokes physics (Sections 2, 3, 6), Einstein noise (Section 4), Berg-style navigation "
+ "strategy (Section 4), and the synthetic helical chassis (Sections 3, 6).")
+heading("1.4 Program Context", 2)
+para(
+ "This paper is Item 19 of MEGA-PROGRAM-27, a twenty-seven-project computational-biology "
+ "campaign executed under four standing rules: real open data and real physics only; "
+ "every model coded, tested and benchmarked; honest negatives preserved alongside "
+ "findings; and no project closes without either a broken benchmark or a named, "
+ "quantified, falsifiable discovery. For this item the discovery is the master curve of "
+ "Section 6; the companion Item 12 paper in the same series applies the identical "
+ "discipline to structure-based drug discovery against the SARS-CoV-2 main protease. The "
+ "two repositories share the same verification philosophy: a hermetic test suite that "
+ "re-derives every load-bearing number from first principles on every commit.")
+heading("2.8 Error Budget of Resistive Force Theory", 2)
+para(
+ "RFT is an approximation, and this paper uses it inside its proven envelope. "
+ "Boundary-element simulations of full helices (Rodenborn et al. 2013 and successors) "
+ "show RFT thrust errors of 10-20% for tightly wound geometries (pitch angle above ~50 "
+ "degrees) where element-element hydrodynamic interactions are strongest, falling below "
+ "5% for open helices near our psi* = 36 degrees. The master-curve R^2 = 1.000000 "
+ "collapse is a statement about the RFT model's internal algebra, not about nature: it "
+ "certifies that the code implements the theory, while the theory's own 5-20% envelope "
+ "is the accuracy budget carried into any experimental comparison. Every speed quoted "
+ "in this paper should be read with that envelope attached.")
+
 # ---------------- 3. helical optimization
 heading("3. Study 1: Helical Geometry Optimization", 1)
 heading("3.1 Setup", 2)
@@ -410,6 +456,21 @@ para("Table 4. Evolutionary statistics per generation (pop 16).", italic=True)
 rows = [[h["generation"], f"{h['best']:.3f}", f"{h['mean']:.3f}", f"{h['std']:.3f}"] for h in xeno["history"]]
 table(["generation", "best fitness", "mean fitness", "std"], rows)
 
+
+heading("5.5 Biological Realism and the Minimal-Model Contract", 2)
+para(
+ "What does a 2D spring lattice actually say about a living xenobot? The honest answer is: "
+ "one thing, said well. The biological xenobot's locomotion emerges from contractile "
+ "cardiac cells embedded in a passive skin-cell matrix; the lattice captures exactly this - "
+ "actuated elements embedded in a passive elastic medium with frictional ground contact. "
+ "What it cannot capture: 3D morphology (the biological bots are roughly spherical "
+ "aggregates), cilia-driven swimming (the 2021 xenobots), viscoelastic tissue rheology, and "
+ "cell death or healing. The contract this study signs is therefore narrow and explicit: it "
+ "demonstrates that phase-coordinated actuation of a passive elastic body is sufficient for "
+ "directed locomotion, and that blind evolutionary search finds such coordination - the two "
+ "claims the xenobot program itself rests on - without asserting quantitative biological "
+ "fidelity. Quantitative tissue modeling belongs to the finite-elasticity follow-up.")
+
 # ---------------- 6. discussion
 heading("6. Discussion", 1)
 para(
@@ -436,6 +497,45 @@ para(
  "this repository. (3) Couple the soft-body search to a drug-release objective, so that "
  "evolved gaits are scored on delivery to a target region rather than raw displacement, "
  "aligning the xenobot objective with the clinical one of Section 1.1.")
+
+
+heading("6.6 Clinical Translation Pathway", 2)
+para(
+ "Moving from this pipeline to a bedside device passes through four gates, each mappable to "
+ "a section of this paper. Gate 1 (design): a candidate chassis must sit on the master "
+ "curve's high plateau - pitch angle within ten degrees of psi* - and inside the step-out "
+ "feasible island at the clinic's available field strength. Gate 2 (navigation): the "
+ "guidance system must clear the delivery feasibility threshold of Section 4.4 for the "
+ "actual course (vessel distance, treatment window), which the Monte-Carlo harness evaluates "
+ "in minutes per protocol. Gate 3 (imaging): closed-loop control requires localization; "
+ "ultrasound tracking of millimeter swarms and magnetic-particle-imaging of sub-millimeter "
+ "swarms are the two demonstrated modalities, and the control law's robustness to four "
+ "decades of orientation noise (Section 4.4) says the guidance bottleneck is localization "
+ "latency, not heading stability. Gate 4 (payload): turns are hydrodynamically free "
+ "(Section 6.2), so helix length can be allocated to cargo surface without speed cost - a "
+ "direct, non-obvious consequence of the master curve for drug-loading design.")
+heading("6.7 Manufacturing Considerations", 2)
+para(
+ "The feasible island's width is the manufacturing story. Two-photon polymerization prints "
+ "helices down to ~200 nm filament radius but slowly; self-scrolled SiGe/Si membranes "
+ "fabricate millions of helices in parallel at fixed pitch-angle bands; glancing-angle "
+ "deposition grows them as thin-film forests. Because the master curve collapses the design "
+ "space, each fabrication method maps to a segment of the psi axis rather than a "
+ "three-dimensional volume: self-scrolling typically lands at psi of 20-30 degrees, within "
+ "15% of the speed optimum, while template electrosynthesis can reach psi* directly. The "
+ "design law thus converts a fabrication-capability question into a one-dimensional "
+ "targeting problem.")
+heading("6.8 Swarm Strategies", 2)
+para(
+ "Single-robot delivery scales poorly: a 10 um helix carries picograms of payload, while "
+ "therapeutic doses are micrograms and up. Swarms of 10^6-10^9 robots are the standard "
+ "answer, and they change the control analysis in one essential way: swarm-averaged "
+ "concentration obeys a drift-diffusion equation in which individual heading noise appears "
+ "as an effective diffusivity, so the delivery fraction onto a target region becomes a "
+ "deterministic quantity computable from the same D_t, D_r and speed statistics validated "
+ "here. The waypoint-success metric of Section 4 then reads as the single-robot limit of a "
+ "swarm delivery fraction, and the feasibility threshold becomes a minimum-dose-rate "
+ "condition. Extending the harness to full swarm PDEs is the next computational milestone.")
 
 # ---------------- 7. limitations
 heading("7. Limitations", 1)
@@ -604,6 +704,97 @@ para(
  f"{scaling['heldout_r2']:.2f}; the master curve's success and the power law's failure are "
  "the same fact - turns carries no signal - read from two sides. The negative is preserved "
  "here as part of the finding.")
+
+
+heading("3.3 Pareto Structure: Speed-Efficiency Trade-off", 2)
+para(
+ "Speed and efficiency peak at different geometries - the classic propulsion trade-off, now "
+ "with numbers. Table 2 lists the five most EFFICIENT feasible designs against the fastest "
+ "from Table 1: efficiency leaders sit at smaller radius and moderate pitch, where less "
+ "power is wasted spinning bulk fluid, while speed leaders exploit large R at the step-out "
+ "edge. A delivery mission picks from the efficient interior; an interception mission picks "
+ "from the fast boundary. The master curve (Section 6) explains the shape: both objectives "
+ "share the same psi dependence, and only the step-out constraint separates them.")
+_scaling = json.loads((RES / "scaling_law.json").read_text())
+_byeff = sorted(_scaling["records"], key=lambda r: -r["eff"])[:5]
+para("Table 2. Five most efficient feasible geometries (extended grid).", italic=True)
+rows = [[f"{d['R']*1e6:.1f}", f"{d['pitch']*1e6:.1f}", f"{d['turns']:.1f}",
+         f"{d['v']*1e6:.0f}", f"{d['eff']*100:.2f}%", f"{d['stepout']/(2*3.14159265):.0f}"]
+        for d in _byeff]
+table(["R (um)", "pitch (um)", "turns", "speed (um/s)", "efficiency", "step-out (Hz)"], rows)
+
+heading("4.5 Threshold Derivation", 2)
+para(
+ "The feasibility threshold of Section 4.4 admits a compact estimate. A course of total "
+ "length L_course within a window T_window requires mean progress v_eff >= L_course / "
+ "T_window. With Brownian heading diffusion reducing the effective speed to roughly "
+ "v_eff ~ v <cos(err)> and <cos(err)> of order 0.5-0.8 under feedback, the threshold sits "
+ "at v_min ~ (3 mm / 120 s) / 0.6 ~ 40 um/s for the idealized bound and somewhat lower in "
+ "practice because arrivals truncate error accumulation - the Monte-Carlo value of ~20 "
+ "um/s brackets this estimate from below, as a check of the simulation against back-of-"
+ "envelope physics rather than a substitute for it.")
+
+heading("5.6 The Winning Genome, Read as a Wave", 2)
+para(
+ "Table 5 lists the evolved actuation phases of the champion genome in lattice order "
+ "(lower-left cell first, row by row). The monotone phase progression along the body axis "
+ "is the traveling wave discussed in Section 5.3, visible directly in the numbers.")
+para("Table 5. Champion actuation phases (rad), cell index -> phase.", italic=True)
+_g = xeno["best_genome_phases"]
+rows = [[i, f"{_g[i]:.2f}"] for i in range(0, len(_g), 3)]
+table(["cell", "phase (rad)"], rows[:8])
+
+heading("Appendix I. Monte-Carlo Statistics Protocol", 1)
+para(
+ "All success rates are binomial proportions over independent seeds; the 95% interval is "
+ "the normal approximation p(1-p)/n with n = 200 (control study) or n = 100 (threshold "
+ "sweep), which at the observed boundary rates (0 and 1) resolves to exact Clopper-Pearson "
+ "bounds: a 100/100 rate excludes, with 95% confidence, any true rate below 0.97, and a "
+ "0/100 rate excludes any true rate above 0.03. The threshold in Section 4.4 is therefore "
+ "sharp not only in the point estimates but in the confidence statements: the transition "
+ "between 10 and 25 um/s separates two non-overlapping statistical regimes. Seeds are "
+ "fixed per experiment and recorded in the results JSON files; every figure regenerates "
+ "bit-identically from the shipped code.")
+
+
+heading("5.7 Gait Robustness: A Documented Overfitting Result", 2)
+para(
+ "Is the champion gait a general locomotion principle or a parameter-specific trick? We "
+ "re-evaluated the winning genome across a 3 x 3 grid of spring stiffness and ground "
+ "friction - the two physics parameters most likely to differ between simulation and "
+ "reality. The answer is sobering and reported in full: the gait crawls 7.20 units ONLY at "
+ "its evolution conditions (k = 60, mu = 0.8); at halved friction it slides BACKWARD "
+ "(-3.93), and at doubled stiffness with high friction it also reverses (-3.75). The "
+ "evolved solution is phase-tuned to a resonance between the actuation frequency and the "
+ "body's elastic response, exactly as a biomechanic would predict and exactly what blind "
+ "fitness maximization exploits. This is an honest negative with a direct consequence: "
+ "xenobot evolution must run under randomized physics (domain randomization) to produce "
+ "gaits that survive fabrication tolerances - now the top item of the soft-body future-"
+ "work list, with this table as its justification.")
+para("Table 6. Champion-genome fitness across physics parameters (evolution conditions bolded by position, center row).", italic=True)
+rows = [[f"{g['stiffness']:.0f}", f"{g['friction_mu']:.1f}", f"{g['fitness']:.3f}"] for g in gaitsens]
+table(["stiffness k", "friction mu", "fitness"], rows)
+
+# ---------------- appendix J: geometry sample
+heading("Appendix J. Master-Curve Geometry Sample", 1)
+para(
+ "Thirty geometries drawn from the 400 used in the Section 6 verification, with measured "
+ "reduced speed and the master-curve prediction at the global anisotropy. The full dataset "
+ "regenerates from studies/study19_mastercurve.py.")
+import numpy as _np
+_rng = _np.random.default_rng(0)
+_geoms = []
+for _ in range(30):
+    _r = _rng.uniform(1e-6, 30e-6); _pp = _rng.uniform(2e-6, 120e-6); _n = _rng.uniform(0.5, 6.0)
+    _g = HelixGeometry(radius=_r, pitch=_pp, filament_radius=0.5e-6, turns=_n)
+    _v = swimming_speed(_g, 2*_np.pi*40.0)
+    _psi = _g.pitch_angle
+    _rho = master["global_xi_ratio"]
+    _s, _c = _np.sin(_psi), _np.cos(_psi)
+    _pred = (_rho-1)*_s*_c/(_rho*_s*_s+_c*_c)
+    _geoms.append([f"{_r*1e6:.1f}", f"{_pp*1e6:.0f}", f"{_n:.1f}", f"{_psi:.3f}",
+                   f"{_v/(2*_np.pi*40.0*_r):.4f}", f"{_pred:.4f}"])
+table(["R (um)", "pitch (um)", "turns", "psi (rad)", "measured v*", "curve v*"], _geoms)
 
 # ---------------- appendix A: numerical methods
 heading("Appendix A. Numerical Methods", 1)

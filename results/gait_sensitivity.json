@@ -1,0 +1,47 @@
+[
+ {
+  "stiffness": 30.0,
+  "friction_mu": 0.4,
+  "fitness": -1.4155626580233212
+ },
+ {
+  "stiffness": 30.0,
+  "friction_mu": 0.8,
+  "fitness": 0.32001800125591373
+ },
+ {
+  "stiffness": 30.0,
+  "friction_mu": 1.6,
+  "fitness": 0.6055653680549633
+ },
+ {
+  "stiffness": 60.0,
+  "friction_mu": 0.4,
+  "fitness": -3.9301493560785365
+ },
+ {
+  "stiffness": 60.0,
+  "friction_mu": 0.8,
+  "fitness": 7.197596717363718
+ },
+ {
+  "stiffness": 60.0,
+  "friction_mu": 1.6,
+  "fitness": 1.5813756616329
+ },
+ {
+  "stiffness": 120.0,
+  "friction_mu": 0.4,
+  "fitness": 0.2824880088075208
+ },
+ {
+  "stiffness": 120.0,
+  "friction_mu": 0.8,
+  "fitness": -1.6749126553854783
+ },
+ {
+  "stiffness": 120.0,
+  "friction_mu": 1.6,
+  "fitness": -3.745734399627845
+ }
+]

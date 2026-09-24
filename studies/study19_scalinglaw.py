@@ -51,7 +51,8 @@ print(f"scaling law: ln v = {coef[0]:.3f} ln R + {coef[1]:.3f} ln pitch "
 print(f"held-out R^2 = {r2:.4f} (n_test={len(test)})")
 verdict = "SCALING LAW HOLDS" if r2 > 0.95 else "SCALING LAW INADEQUATE - honest negative"
 print(verdict)
-json.dump({"n_feasible": len(records),
+json.dump({"records": [{k: float(v) for k, v in r.items()} for r in records],
+           "n_feasible": len(records),
            "optimum": {k: (v if not isinstance(v, np.floating) else float(v))
                        for k, v in best.items()},
            "law_coefficients": {"ln_R": float(coef[0]), "ln_pitch": float(coef[1]),
