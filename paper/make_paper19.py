@@ -246,7 +246,7 @@ para(
  "walk; Section 4 quantifies exactly how badly it fails and how completely feedback fixes it.")
 
 
-heading("2.7 A Worked Example", 2)
+heading("2.5 A Worked Example", 2)
 para(
  "To make the theory concrete, Table 2.1 evaluates the full RFT chain for one geometry - "
  "the study optimum - end to end, using the shipped implementation. Reading the table top "
