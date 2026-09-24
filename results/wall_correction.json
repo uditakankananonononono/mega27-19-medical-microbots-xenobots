@@ -1,0 +1,138 @@
+{
+ "model": "Faxen exact series, sphere near a single plane wall",
+ "formulas": {
+  "parallel": "1 - 9x/16 + x^3/8 - 45x^4/256 - x^5/16",
+  "perpendicular": "1 - 9x/8 + x^3/2"
+ },
+ "robot_radius_um": 2.0,
+ "validity": [
+  "single-wall approximation; two-wall confinement (a/R>0.3, capillary rows) is lower fidelity",
+  "series truncated at x^5; lubrication regime (x>0.8, grazing rows) underestimates drag"
+ ],
+ "table": [
+  {
+   "vessel": "capillary",
+   "vessel_radius_um": 5.0,
+   "clearance": "wide (c=5a)",
+   "clearance_um": 10.0,
+   "a_over_h": 0.16666666666666666,
+   "lambda_parallel": 0.9066850324717078,
+   "lambda_perp": 0.8148148148148148,
+   "two_wall_confinement_regime": true
+  },
+  {
+   "vessel": "capillary",
+   "vessel_radius_um": 5.0,
+   "clearance": "close (c=a)",
+   "clearance_um": 2.0,
+   "a_over_h": 0.5,
+   "lambda_parallel": 0.721435546875,
+   "lambda_perp": 0.5,
+   "two_wall_confinement_regime": true
+  },
+  {
+   "vessel": "capillary",
+   "vessel_radius_um": 5.0,
+   "clearance": "grazing (c=0.1a)",
+   "clearance_um": 0.2,
+   "a_over_h": 0.9090909090909091,
+   "lambda_parallel": 0.42368217210697234,
+   "lambda_perp": 0.3529301277235161,
+   "two_wall_confinement_regime": true
+  },
+  {
+   "vessel": "postcapillary venule",
+   "vessel_radius_um": 10.0,
+   "clearance": "wide (c=5a)",
+   "clearance_um": 10.0,
+   "a_over_h": 0.16666666666666666,
+   "lambda_parallel": 0.9066850324717078,
+   "lambda_perp": 0.8148148148148148,
+   "two_wall_confinement_regime": false
+  },
+  {
+   "vessel": "postcapillary venule",
+   "vessel_radius_um": 10.0,
+   "clearance": "close (c=a)",
+   "clearance_um": 2.0,
+   "a_over_h": 0.5,
+   "lambda_parallel": 0.721435546875,
+   "lambda_perp": 0.5,
+   "two_wall_confinement_regime": false
+  },
+  {
+   "vessel": "postcapillary venule",
+   "vessel_radius_um": 10.0,
+   "clearance": "grazing (c=0.1a)",
+   "clearance_um": 0.2,
+   "a_over_h": 0.9090909090909091,
+   "lambda_parallel": 0.42368217210697234,
+   "lambda_perp": 0.3529301277235161,
+   "two_wall_confinement_regime": false
+  },
+  {
+   "vessel": "arteriole",
+   "vessel_radius_um": 25.0,
+   "clearance": "wide (c=5a)",
+   "clearance_um": 10.0,
+   "a_over_h": 0.16666666666666666,
+   "lambda_parallel": 0.9066850324717078,
+   "lambda_perp": 0.8148148148148148,
+   "two_wall_confinement_regime": false
+  },
+  {
+   "vessel": "arteriole",
+   "vessel_radius_um": 25.0,
+   "clearance": "close (c=a)",
+   "clearance_um": 2.0,
+   "a_over_h": 0.5,
+   "lambda_parallel": 0.721435546875,
+   "lambda_perp": 0.5,
+   "two_wall_confinement_regime": false
+  },
+  {
+   "vessel": "arteriole",
+   "vessel_radius_um": 25.0,
+   "clearance": "grazing (c=0.1a)",
+   "clearance_um": 0.2,
+   "a_over_h": 0.9090909090909091,
+   "lambda_parallel": 0.42368217210697234,
+   "lambda_perp": 0.3529301277235161,
+   "two_wall_confinement_regime": false
+  },
+  {
+   "vessel": "small artery",
+   "vessel_radius_um": 50.0,
+   "clearance": "wide (c=5a)",
+   "clearance_um": 10.0,
+   "a_over_h": 0.16666666666666666,
+   "lambda_parallel": 0.9066850324717078,
+   "lambda_perp": 0.8148148148148148,
+   "two_wall_confinement_regime": false
+  },
+  {
+   "vessel": "small artery",
+   "vessel_radius_um": 50.0,
+   "clearance": "close (c=a)",
+   "clearance_um": 2.0,
+   "a_over_h": 0.5,
+   "lambda_parallel": 0.721435546875,
+   "lambda_perp": 0.5,
+   "two_wall_confinement_regime": false
+  },
+  {
+   "vessel": "small artery",
+   "vessel_radius_um": 50.0,
+   "clearance": "grazing (c=0.1a)",
+   "clearance_um": 0.2,
+   "a_over_h": 0.9090909090909091,
+   "lambda_parallel": 0.42368217210697234,
+   "lambda_perp": 0.3529301277235161,
+   "two_wall_confinement_regime": false
+  }
+ ],
+ "close_swimming_lambda_parallel": 0.721435546875,
+ "bulk_delivery_threshold_um_s": 25.0,
+ "wall_corrected_bulk_equivalent_um_s": 34.653130287648054,
+ "verdict": "at a realistic close-to-wall clearance (c=a), wall drag cuts speed to 72.1% of bulk; the bulk 25 um/s delivery threshold becomes a 34.7 um/s bulk-equivalent requirement. Grazing contact (c=0.1a) cuts speed to ~42.4% - near-wall crawling is strongly penalized."
+}
