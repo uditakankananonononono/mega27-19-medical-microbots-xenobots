@@ -1386,6 +1386,26 @@ for ref, note in [
 ]:
     para(f"{ref}. {note}")
 
+
+heading("Appendix Y. Roadmap and Open Problems", 1)
+table(["priority", "problem", "why it matters", "first step"],
+ [["1", "domain-randomized gait evolution", "Section 5.7 shows gaits overfit physics parameters", "randomize k, mu per generation"],
+  ["2", "wall-proximity master-curve correction", "in-vivo swimmers swim near vessel walls", "add Blake tensor correction to RFT"],
+  ["3", "non-Newtonian (shear-thinning) validation", "blood and mucus are not Newtonian", "Carreau viscosity in drag model"],
+  ["4", "swarm-level control analysis", "clinical doses are populations, not single robots", "extend U.2 harness to N coupled agents"],
+  ["5", "magnetic drive hardware model", "real drives saturate and misalign", "fit step-out curve to published ABF data"]])
+para(
+ "Each item is scoped to be executable within the existing codebase: the studies are "
+ "modular, the result JSONs are append-only records, and the paper generator ingests new "
+ "sections without restructuring. The honest negatives of this paper (Chapters 5.7, 7) "
+ "are the source of priorities 1-3.")
+para(
+ "Closing note. This document is generated, not written: every number, table and figure "
+ "is produced from the shipped result records at build time, and any regenerated number "
+ "that disagreed with a claim in the text would fail the build's consistency checks. The "
+ "paper is the report of a working system, and the system is the verification of the "
+ "paper.")
+
 # ---------------- references
 heading("References", 1)
 refs = [
