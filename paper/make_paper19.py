@@ -1283,6 +1283,73 @@ para(
  "built into the loop. We report both without mitigation because they shape the next "
  "experiments more than another positive result would.")
 
+
+heading("Appendix U. Study Protocols in Detail", 1)
+para(
+ "U.1 Helical optimization. The sweep draws 400 candidate geometries uniformly in "
+ "radius 1-30 um, pitch 2-120 um, turns 0.5-6, filament radius fixed at 0.5 um, drive "
+ "40 Hz. Each candidate is evaluated with the RFT solver (formulas F1-F6), assigned "
+ "speed, efficiency (thrust power over drive power) and a step-out feasibility flag. The "
+ "optimizer reports the Pareto frontier in the speed-efficiency plane. Runtime under one "
+ "minute on the sandbox; the JSON record stores every evaluated geometry, not only the "
+ "winners, so the frontier and the master-curve verification share one dataset.")
+para(
+ "U.2 Swarm control. A single helical robot (radius 10 um, 25 um/s) is tasked with three "
+ "sequential waypoints spanning 600 um, 120 s window, at body temperature with "
+ "Stokes-Einstein diffusion. Control law: rotate the drive axis toward the current "
+ "waypoint each control step (heading servo). Modes compared: controlled vs uncontrolled "
+ "(fixed heading), n = 40 runs each. Metrics: delivery success, leg time, path length, "
+ "rms waypoint error. The uncontrolled 0/40 baseline establishes that Brownian drift "
+ "alone never delivers; the controlled 40/40 establishes that the servo law saturates "
+ "the window.")
+para(
+ "U.3 Xenobot gait evolution. A 24-particle mass-spring sheet (6 x 4) with stiffness "
+ "k = 60, ground friction mu = 0.8; muscle particles oscillate sinusoidally with genome-"
+ "coded phases (12 genes). Fitness = net horizontal displacement over a fixed episode. "
+ "Evolution: population 32, mutation sigma 0.3, elitism 2, tournament selection, 60 "
+ "generations, five independent runs. Baseline: identical sheet with synchronized "
+ "(zero-phase) actuation, fitness 0.00 - the evolution must beat a motionless control, "
+ "not a straw man.")
+para(
+ "U.4 Master-curve verification. The 400 sweep geometries are re-scored at three drive "
+ "frequencies (20, 40, 80 Hz). Reduced speed v/(omega R) is regressed against the "
+ "single-argument prediction f(psi; rho) with rho the global drag ratio. Exact-collapse "
+ "test: within one frequency, residuals must be zero to solver precision (R^2 = 1.0); "
+ "global test: pooled across frequencies with ln(2L/a) varying (R^2 = 0.998). The "
+ "optimum psi* is found by analytic maximization and checked against the numeric argmax.")
+para(
+ "U.5 Noise and threshold. Delivery success rate vs propulsion speed at 5, 10, 15, 25, "
+ "40 um/s (n = 40 per level) on the three-waypoint course; then a noise multiplier sweep "
+ "(1x to 1000x thermal noise) at the study speed. Produces the feasibility cliff and the "
+ "robustness plateau reported in Section 5.6.")
+para(
+ "U.6 Scaling-law attempt. Best-fitness metrics from the three physics families "
+ "(helical efficiency, swarm delivery rate, xenobot gait fitness) are regressed against "
+ "candidate control parameters (drive frequency, speed, stiffness). Honest negative: "
+ "R^2 = 0.56, no shared control parameter exists across families. Preserved as a "
+ "boundary result in Section 7.")
+para(
+ "U.7 Integrator convergence. MSD of a freely diffusing sphere measured over 30 s "
+ "trajectories at dt = 0.04, 0.02, 0.01, 0.005 s and compared with the Stokes-Einstein "
+ "theory value; relative error and refinement ratio tabulated (Table N4).")
+para(
+ "U.8 Gait sensitivity. The champion genome from U.3 is re-evaluated on a 3 x 3 grid of "
+ "stiffness {30, 60, 120} and friction {0.4, 0.8, 1.6}. Result: fitness 7.20 only at "
+ "the evolution point, negative at two corners - the overfitting finding of Section 5.7.")
+
+heading("Appendix V. Glossary", 1)
+for term, gloss in [
+ ("RFT", "Resistive force theory: local anisotropic drag model for slender filaments in Stokes flow."),
+ ("Step-out", "Frequency above which a magnetically driven helix can no longer follow the rotating field; thrust collapses."),
+ ("Master curve", "A collapse of many parameter-dependent measurements onto one curve of a reduced variable."),
+ ("Peclet number", "Ratio of advective to diffusive transport; large Pe means propulsion beats diffusion."),
+ ("Domain randomization", "Training/evolving under randomized simulator parameters so solutions transfer to real physics."),
+ ("Xenobot", "A living robot assembled from frog skin/heart cells; here modeled as a contractile mass-spring sheet."),
+ ("Brownian noise floor", "The diffusive displacement a microswimmer cannot avoid; sets the minimum useful propulsion speed."),
+ ("Waypoint delivery", "Reaching a target region within a time window despite thermal noise."),
+]:
+    para(f"{term}. {gloss}")
+
 # ---------------- references
 heading("References", 1)
 refs = [
