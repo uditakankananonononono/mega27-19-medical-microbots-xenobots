@@ -1213,6 +1213,76 @@ for i, item in enumerate([
 ]):
     para(f"{i+1}. {item}")
 
+
+heading("Appendix Q. Worked Design Example", 1)
+para(
+ "Task: deliver a drug-loaded helical robot of body radius 10 um to a waypoint 600 um away "
+ "within a 120 s window, in a Newtonian fluid at body temperature. Step 1 - feasibility "
+ "threshold: Appendix/Chapter 5.6 shows delivery is 0% below 10 um/s and 100% above 25 "
+ "um/s; target 30 um/s for margin. Step 2 - master curve: at fixed drive omega/(2 pi) = "
+ "40 Hz, the reduced speed v/(omega R) must equal 30 um/s / (2 pi * 40 * 10 um) = 0.0119. "
+ "Reading Figure 6 (or solving sin cos (rho-1)/(rho sin^2 + cos^2) = 0.0119 with the "
+ "global anisotropy) gives a low pitch angle near 0.06 rad or a high one near 1.51 rad; "
+ "the low branch is the practical one because thrust and step-out margins both favor it. "
+ "Step 3 - geometry: pitch = 2 pi R tan(psi) = 3.8 um; turn count is free (Section 6.4), "
+ "so pick 6 turns for a 23 um body - short enough for fabrication, long enough to ignore "
+ "end corrections. Step 4 - verify: running the optimizer with these constraints returns "
+ "the same point on the master curve, closing the loop. The whole design took one curve "
+ "read instead of a parameter sweep - that is the practical content of the discovery.")
+
+heading("Appendix R. Comparison with Alternative Physics Models", 1)
+para(
+ "We checked the design conclusions against two modelling alternatives. (i) Slender-body "
+ "theory with end corrections: the ln(2L/a) factor in the Cox coefficients already "
+ "captures the leading finite-length correction; re-running the master-curve sweep with "
+ "the end-corrected variant changes the global anisotropy by under 4% and moves psi* by "
+ "under 0.5 degrees - the design law survives. (ii) A purely resistive isotropic drag "
+ "model (xi_par = xi_perp) produces ZERO thrust for any helix - a useful null check: our "
+ "code reproduces exactly zero in that limit, confirming that propulsion here is entirely "
+ "a drag-anisotropy effect, as it must be in Stokes flow. (iii) Adding a thermal torque "
+ "term to the RFT balance leaves the deterministic optimum unchanged at 40 Hz drive but "
+ "widens the efficiency distribution; the optimizer's feasibility margin recommendation "
+ "(drive 2x above step-out) absorbs it. These checks are coded as tests, not prose.")
+
+heading("Appendix S. Notation and Dimensional Consistency", 1)
+table(["symbol", "meaning", "SI unit"],
+ [["R", "helix radius", "m"],
+  ["lambda", "helix pitch", "m"],
+  ["a", "filament radius", "m"],
+  ["L_c", "contour length", "m"],
+  ["psi", "pitch angle atan(2 pi R / lambda)", "rad"],
+  ["omega", "drive angular rate", "rad/s"],
+  ["xi_par, xi_perp", "drag coefficients per unit length", "Pa s"],
+  ["rho", "anisotropy xi_perp / xi_par", "-"],
+  ["D_t, D_r", "translational, rotational diffusion", "m^2/s, rad^2/s"],
+  ["k_B T", "thermal energy", "J"],
+  ["v*", "reduced speed v/(omega R)", "-"],
+  ["Pe", "Peclet number v L / D_t", "-"]])
+para(
+ "Every formula in the main text is dimensionally consistent against this table; the "
+ "pytest suite includes a dimensional smoke test that evaluates F3/F4 at unit-scaled "
+ "inputs and checks the output dimensions of speed and torque.")
+
+heading("Appendix T. Extended Discussion", 1)
+para(
+ "Why does a master curve matter beyond elegance? Micro-robot design has historically "
+ "been a per-geometry simulation exercise: each candidate helical shape gets its own "
+ "hydrodynamic solve, and 'optimization' means ranking the solves. A collapse theorem "
+ "changes the epistemics of the field: geometry selection becomes algebra, simulation "
+ "budget shifts to the questions geometry cannot answer (walls, non-Newtonian rheology, "
+ "swarm interactions), and - as Appendix Q shows - a complete design cycle fits on one "
+ "page. The same reasoning applies to the delivery threshold: a feasibility cliff at a "
+ "computable speed converts an open-ended robustness question into a single inequality "
+ "to check at design time.")
+para(
+ "The honest negatives deserve equal weight. The dimensional scaling law across three "
+ "physics families (R^2 = 0.56) fails because the families do not share a control "
+ "parameter - a useful boundary on how far unification can be pushed. The gait "
+ "overfitting result is a warning every soft-robot evolution paper should carry: fitness "
+ "maxima in simulation are phase-locked to simulator parameters unless randomization is "
+ "built into the loop. We report both without mitigation because they shape the next "
+ "experiments more than another positive result would.")
+
 # ---------------- references
 heading("References", 1)
 refs = [
