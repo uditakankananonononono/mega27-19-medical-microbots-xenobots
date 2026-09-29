@@ -1195,7 +1195,7 @@ rows = [[f"{c['dt_s']}", f"{c['msd_um2_30s']:.0f}", f"{c['theory_um2']:.0f}", f"
 table(["dt (s)", "MSD (um^2)", "theory (um^2)", "relative error"], rows)
 
 # ---------------- appendix H: annotated bibliography
-heading("Appendix H. Annotated Bibliography", 1)
+heading("Appendix H. References and Annotated Bibliography", 1)
 notes = [
  ("Purcell (1977)", "The founding document of low-Reynolds swimming; the scallop theorem in Section 2.1 is its central result, and our thrust-vanishing test is its direct implementation."),
  ("Lauga and Powers (2009)", "The modern hydrodynamics reference; our drag coefficients are its slender-body forms, and the anisotropy-ratio test bounds are taken from its Table 1."),
@@ -1428,7 +1428,7 @@ para(
  "necessarily abrupt, which is why the empirical table jumps from 0% to 100% across one "
  "speed step rather than grading smoothly.")
 
-heading("Appendix X. Extended Annotated Bibliography", 1)
+heading("Appendix X. Extended References and Annotated Bibliography", 1)
 for ref, note in [
  ("Purcell (1977), Life at low Reynolds number", "The scallop theorem underlying every design here: reciprocal motion cannot swim in Stokes flow. Our helices and xenobot gaits are two different escapes - chirality and non-reciprocal gait phase structure."),
  ("Lauga & Powers (2009), The hydrodynamics of swimming microorganisms", "The review from which the RFT coefficients and the squirmer comparison are taken; our F1-F6 follow its notation."),
